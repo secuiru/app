@@ -1,0 +1,10 @@
+^E:\PROJOAPPI\APP\EZFOOD\BUILD\WINDOWS\CMAKEFILES\70A2BF986E73E50C2756E3667F3512E3\INSTALL_FORCE.RULE
+setlocal
+cd .
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
