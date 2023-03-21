@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ezfood/favourites.dart';
 import 'package:ezfood/home.dart';
 import 'package:ezfood/settings.dart';
+import 'package:easy_search_bar/easy_search_bar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,9 @@ class MyApp extends StatelessWidget {
       home: const RootPage(),
     );
   }
+  
 }
+
 
 class RootPage extends StatefulWidget {
   
@@ -45,6 +48,8 @@ ThemeData _darkTheme = ThemeData(
 
 class _RootPageState extends State<RootPage> {
   int currentPage = 0;
+   String searchValue = '';
+  final List<String> _suggestions = ['pahaa ruokaa helposti', 'kova nälkä on','helppo ruoka alle 1 euro'];
   List<Widget> pages = const  [
     Favourites(),
     home(),
@@ -56,8 +61,10 @@ class _RootPageState extends State<RootPage> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
        theme: _iconbool ? _darkTheme : _lightTheme,
-       home:Scaffold(
-      appBar: AppBar(
+       home: Scaffold(
+        appBar: EasySearchBar(
+          onSearch: (value) => setState(() => searchValue = value),
+          suggestions: _suggestions,
         title: const Text('Ezfood'),
         actions: [
           IconButton(onPressed:(){
