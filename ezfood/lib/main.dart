@@ -83,9 +83,9 @@ class _RootPageState extends State<RootPage> {
         ),
         bottomNavigationBar: NavigationBar(
           destinations: const [
-            NavigationDestination(icon: Icon(Icons.info), label: 'About'),
+            NavigationDestination(icon: Icon(Icons.favorite), label: 'Favourites'),
              NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
-            NavigationDestination(icon: Icon(Icons.api), label: 'API'),  
+            NavigationDestination(icon: Icon(Icons.settings), label: 'Settings'),  
           ],
           onDestinationSelected: (int index) {
             setState(() {

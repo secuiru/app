@@ -1,4 +1,4 @@
-#Tue Mar 21 11:09:39 EET 2023
-base.0=C\:\\work\\MOBILEPROJEKTI\\2\\app\\ezfood\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+#Tue Mar 21 11:19:17 EET 2023
+base.0=E\:\\projoappi\\app\\ezfood\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex
