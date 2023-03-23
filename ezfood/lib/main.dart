@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'favourites.dart';
 import 'home.dart';
 import 'settings.dart';
-
+import 'package:easy_search_bar/easy_search_bar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -64,7 +64,9 @@ class _RootPageState extends State<RootPage> {
        theme: _iconbool ? _darkTheme : _lightTheme,
        home: Scaffold(
 
-         appBar: AppBar(
+         appBar: EasySearchBar(
+          onSearch: (value) => setState(() => searchValue = value),
+          suggestions: _suggestions,
         title: const Text('ezfood'),
         actions: [
           IconButton(onPressed:(){

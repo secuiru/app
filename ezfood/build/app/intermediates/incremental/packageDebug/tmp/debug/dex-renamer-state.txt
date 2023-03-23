@@ -1,0 +1,4 @@
+#Thu Mar 23 12:18:54 EET 2023
+base.0=C\:\\Users\\tmkyl\\Documents\\OAMK\\Mobiilirojekti K23\\uusin\\app\\ezfood\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
