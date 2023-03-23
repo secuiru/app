@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ezfood/favourites.dart';
-import 'package:ezfood/home.dart';
-import 'package:ezfood/settings.dart';
-import 'package:easy_search_bar/easy_search_bar.dart';
+import 'favourites.dart';
+import 'home.dart';
+import 'settings.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -50,10 +50,11 @@ class _RootPageState extends State<RootPage> {
   int currentPage = 0;
    String searchValue = '';
   final List<String> _suggestions = ['pahaa ruokaa helposti', 'kova nälkä on','helppo ruoka alle 1 euro'];
-  List<Widget> pages = const  [
-    Favourites(),
+  List<Widget> pages =   [
+    
     home(),
-    settings()
+    const Favourites(),
+    const settings()
     
   ];
   @override
@@ -62,10 +63,9 @@ class _RootPageState extends State<RootPage> {
       debugShowCheckedModeBanner: false,
        theme: _iconbool ? _darkTheme : _lightTheme,
        home: Scaffold(
-        appBar: EasySearchBar(
-          onSearch: (value) => setState(() => searchValue = value),
-          suggestions: _suggestions,
-        title: const Text('Ezfood'),
+
+         appBar: AppBar(
+        title: const Text('ezfood'),
         actions: [
           IconButton(onPressed:(){
               setState(() {
@@ -75,16 +75,11 @@ class _RootPageState extends State<RootPage> {
           ],
       ),
       body: pages[currentPage],
-      floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            debugPrint('Floating Action button');
-          },
-          child: const Icon(Icons.add),
-        ),
+
         bottomNavigationBar: NavigationBar(
           destinations: const [
             NavigationDestination(icon: Icon(Icons.favorite), label: 'Favourites'),
-             NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
+            NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
             NavigationDestination(icon: Icon(Icons.settings), label: 'Settings'),  
           ],
           onDestinationSelected: (int index) {

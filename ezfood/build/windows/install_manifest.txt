@@ -1,9 +1,0 @@
-E:/projoappi/app/ezfood/build/windows/runner/Debug/data/icudtl.dat
-E:/projoappi/app/ezfood/build/windows/runner/Debug/flutter_windows.dll
-E:/projoappi/app/ezfood/build/windows/runner/Debug/data/flutter_assets/AssetManifest.json
-E:/projoappi/app/ezfood/build/windows/runner/Debug/data/flutter_assets/FontManifest.json
-E:/projoappi/app/ezfood/build/windows/runner/Debug/data/flutter_assets/fonts/MaterialIcons-Regular.otf
-E:/projoappi/app/ezfood/build/windows/runner/Debug/data/flutter_assets/kernel_blob.bin
-E:/projoappi/app/ezfood/build/windows/runner/Debug/data/flutter_assets/NOTICES.Z
-E:/projoappi/app/ezfood/build/windows/runner/Debug/data/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf
-E:/projoappi/app/ezfood/build/windows/runner/Debug/data/flutter_assets/shaders/ink_sparkle.frag

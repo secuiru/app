@@ -10,6 +10,10 @@ class settings extends StatefulWidget {
 class _settingsState extends State<settings> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      
+      //Now let's call the APi services with futurebuilder wiget
+      
+    );
   }
 }
