@@ -21,7 +21,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{7357ED56-1109-33F7-8F28-C4D5B566E423}</ProjectGuid>
+    <ProjectGuid>{CBDE9326-D3E2-329D-ADAB-328B24AAAF4B}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.22000.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
@@ -88,11 +88,11 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\projoappi\app\ezfood\windows\runner\CMakeLists.txt">
+    <CustomBuild Include="C:\Users\tmkyl\Documents\OAMK\Mobiilirojekti K23\uusin\app\ezfood\windows\runner\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule E:/projoappi/app/ezfood/windows/runner/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/tmkyl/Documents/OAMK/Mobiilirojekti K23/uusin/app/ezfood/windows/runner/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SE:/projoappi/app/ezfood/windows -BE:/projoappi/app/ezfood/build/windows --check-stamp-file E:/projoappi/app/ezfood/build/windows/runner/CMakeFiles/generate.stamp
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" "-SC:/Users/tmkyl/Documents/OAMK/Mobiilirojekti K23/uusin/app/ezfood/windows" "-BC:/Users/tmkyl/Documents/OAMK/Mobiilirojekti K23/uusin/app/ezfood/build/windows" --check-stamp-file "C:/Users/tmkyl/Documents/OAMK/Mobiilirojekti K23/uusin/app/ezfood/build/windows/runner/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -101,11 +101,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\projoappi\app\ezfood\build\windows\runner\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\tmkyl\Documents\OAMK\Mobiilirojekti K23\uusin\app\ezfood\build\windows\runner\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">Building Custom Rule E:/projoappi/app/ezfood/windows/runner/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">Building Custom Rule C:/Users/tmkyl/Documents/OAMK/Mobiilirojekti K23/uusin/app/ezfood/windows/runner/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">setlocal
-"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SE:/projoappi/app/ezfood/windows -BE:/projoappi/app/ezfood/build/windows --check-stamp-file E:/projoappi/app/ezfood/build/windows/runner/CMakeFiles/generate.stamp
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" "-SC:/Users/tmkyl/Documents/OAMK/Mobiilirojekti K23/uusin/app/ezfood/windows" "-BC:/Users/tmkyl/Documents/OAMK/Mobiilirojekti K23/uusin/app/ezfood/build/windows" --check-stamp-file "C:/Users/tmkyl/Documents/OAMK/Mobiilirojekti K23/uusin/app/ezfood/build/windows/runner/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -114,11 +114,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">E:\projoappi\app\ezfood\build\windows\runner\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">C:\Users\tmkyl\Documents\OAMK\Mobiilirojekti K23\uusin\app\ezfood\build\windows\runner\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule E:/projoappi/app/ezfood/windows/runner/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/tmkyl/Documents/OAMK/Mobiilirojekti K23/uusin/app/ezfood/windows/runner/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SE:/projoappi/app/ezfood/windows -BE:/projoappi/app/ezfood/build/windows --check-stamp-file E:/projoappi/app/ezfood/build/windows/runner/CMakeFiles/generate.stamp
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" "-SC:/Users/tmkyl/Documents/OAMK/Mobiilirojekti K23/uusin/app/ezfood/windows" "-BC:/Users/tmkyl/Documents/OAMK/Mobiilirojekti K23/uusin/app/ezfood/build/windows" --check-stamp-file "C:/Users/tmkyl/Documents/OAMK/Mobiilirojekti K23/uusin/app/ezfood/build/windows/runner/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -127,21 +127,21 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\projoappi\app\ezfood\build\windows\runner\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\tmkyl\Documents\OAMK\Mobiilirojekti K23\uusin\app\ezfood\build\windows\runner\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="E:\projoappi\app\ezfood\build\windows\ZERO_CHECK.vcxproj">
-      <Project>{C629BD36-4095-3D2B-AB7E-5BCAB54A9A89}</Project>
+    <ProjectReference Include="C:\Users\tmkyl\Documents\OAMK\Mobiilirojekti K23\uusin\app\ezfood\build\windows\ZERO_CHECK.vcxproj">
+      <Project>{4EF86B54-7CE1-36AE-BDE4-C20C4EB4DBFE}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="E:\projoappi\app\ezfood\build\windows\runner\ezfood.vcxproj">
-      <Project>{2A72ED1B-445C-3770-BFB7-004C0EA5CB14}</Project>
+    <ProjectReference Include="C:\Users\tmkyl\Documents\OAMK\Mobiilirojekti K23\uusin\app\ezfood\build\windows\runner\ezfood.vcxproj">
+      <Project>{40A07922-DA3C-3CF6-8600-E6449FA0846D}</Project>
       <Name>ezfood</Name>
     </ProjectReference>
   </ItemGroup>

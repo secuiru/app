@@ -1,4 +1,4 @@
-# Install script for directory: E:/projoappi/app/ezfood/windows/flutter
+# Install script for directory: C:/Users/tmkyl/Documents/OAMK/Mobiilirojekti K23/uusin/app/ezfood/windows/flutter
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

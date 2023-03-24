@@ -1,4 +1,4 @@
-# Install script for directory: E:/projoappi/app/ezfood/windows/runner
+# Install script for directory: C:/Users/tmkyl/Documents/OAMK/Mobiilirojekti K23/uusin/app/ezfood/windows/runner
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

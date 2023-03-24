@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="E:\projoappi\app\ezfood\build\windows\CMakeFiles\324bcbb382d7e0d7a1ec0d7cda2f8de1\INSTALL_force.rule">
+    <CustomBuild Include="C:\Users\tmkyl\Documents\OAMK\Mobiilirojekti K23\uusin\app\ezfood\build\windows\CMakeFiles\322a0ce9d8585c3bab92b11686fc1754\INSTALL_force.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{E8301FD2-6FEB-3ACD-A3D1-DB8A83A2AEC2}</UniqueIdentifier>
+      <UniqueIdentifier>{E129DB15-0530-3EAB-A820-834074DDBCE5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -1,6 +1,6 @@
-^E:\PROJOAPPI\APP\EZFOOD\BUILD\WINDOWS\CMAKEFILES\2AC776C7CBB262219AD80F5AE424B059\FLUTTER_WINDOWS.DLL.RULE
+^C:\USERS\TMKYL\DOCUMENTS\OAMK\MOBIILIROJEKTI K23\UUSIN\APP\EZFOOD\BUILD\WINDOWS\CMAKEFILES\382DB5768302C68549613C98E1DEA775\FLUTTER_WINDOWS.DLL.RULE
 setlocal
-"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E env FLUTTER_ROOT=C:\tools\flutter PROJECT_DIR=E:\projoappi\app\ezfood FLUTTER_ROOT=C:\tools\flutter FLUTTER_EPHEMERAL_DIR=E:\projoappi\app\ezfood\windows\flutter\ephemeral PROJECT_DIR=E:\projoappi\app\ezfood FLUTTER_TARGET=E:\projoappi\app\ezfood\lib\main.dart DART_DEFINES=RkxVVFRFUl9XRUJfQVVUT19ERVRFQ1Q9dHJ1ZQ== DART_OBFUSCATION=false TRACK_WIDGET_CREATION=true TREE_SHAKE_ICONS=false PACKAGE_CONFIG=E:\projoappi\app\ezfood\.dart_tool\package_config.json C:/tools/flutter/packages/flutter_tools/bin/tool_backend.bat windows-x64 Debug
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E env FLUTTER_ROOT=C:\tools\flutter "PROJECT_DIR=C:\Users\tmkyl\Documents\OAMK\Mobiilirojekti K23\uusin\app\ezfood" FLUTTER_ROOT=C:\tools\flutter "FLUTTER_EPHEMERAL_DIR=C:\Users\tmkyl\Documents\OAMK\Mobiilirojekti K23\uusin\app\ezfood\windows\flutter\ephemeral" "PROJECT_DIR=C:\Users\tmkyl\Documents\OAMK\Mobiilirojekti K23\uusin\app\ezfood" "FLUTTER_TARGET=C:\Users\tmkyl\Documents\OAMK\Mobiilirojekti K23\uusin\app\ezfood\lib\main.dart" DART_DEFINES=RkxVVFRFUl9XRUJfQVVUT19ERVRFQ1Q9dHJ1ZQ== DART_OBFUSCATION=false TRACK_WIDGET_CREATION=true TREE_SHAKE_ICONS=false "PACKAGE_CONFIG=C:\Users\tmkyl\Documents\OAMK\Mobiilirojekti K23\uusin\app\ezfood\.dart_tool\package_config.json" C:/tools/flutter/packages/flutter_tools/bin/tool_backend.bat windows-x64 Debug
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -8,7 +8,7 @@ endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd
-^E:\PROJOAPPI\APP\EZFOOD\BUILD\WINDOWS\CMAKEFILES\E9A22F111179F200C0943557DC82A02F\FLUTTER_ASSEMBLE.RULE
+^C:\USERS\TMKYL\DOCUMENTS\OAMK\MOBIILIROJEKTI K23\UUSIN\APP\EZFOOD\BUILD\WINDOWS\CMAKEFILES\87A2A8C09C70738C975B754C4C1539F0\FLUTTER_ASSEMBLE.RULE
 setlocal
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -16,9 +16,9 @@ endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd
-^E:\PROJOAPPI\APP\EZFOOD\WINDOWS\FLUTTER\CMAKELISTS.TXT
+^C:\USERS\TMKYL\DOCUMENTS\OAMK\MOBIILIROJEKTI K23\UUSIN\APP\EZFOOD\WINDOWS\FLUTTER\CMAKELISTS.TXT
 setlocal
-"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SE:/projoappi/app/ezfood/windows -BE:/projoappi/app/ezfood/build/windows --check-stamp-file E:/projoappi/app/ezfood/build/windows/flutter/CMakeFiles/generate.stamp
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" "-SC:/Users/tmkyl/Documents/OAMK/Mobiilirojekti K23/uusin/app/ezfood/windows" "-BC:/Users/tmkyl/Documents/OAMK/Mobiilirojekti K23/uusin/app/ezfood/build/windows" --check-stamp-file "C:/Users/tmkyl/Documents/OAMK/Mobiilirojekti K23/uusin/app/ezfood/build/windows/flutter/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
