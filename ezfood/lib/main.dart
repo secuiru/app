@@ -1,26 +1,127 @@
+
 import 'package:flutter/material.dart';
 import 'favourites.dart';
 import 'home.dart';
 import 'settings.dart';
 import 'package:easy_search_bar/easy_search_bar.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'package:firebase_ui_auth/firebase_ui_auth.dart'; // new
+
+import 'package:go_router/go_router.dart';               // new
+
+import 'package:provider/provider.dart';                 // new
+import 'package:google_fonts/google_fonts.dart';
+import 'app_state.dart';  
+import 'firebase_options.dart';
+import 'package:firebase_auth/firebase_auth.dart' // new
+    hide EmailAuthProvider, PhoneAuthProvider;                               // new
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+ await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  runApp(ChangeNotifierProvider(
+    create: (context) => ApplicationState(),
+    builder: ((context, child) => const App()),
+  ));
+ 
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+
+
+final _router = GoRouter(
+  routes: [
+    GoRoute(
+      path: '/',
+      builder: (context, state) => const RootPage(),
+      routes: [
+        GoRoute(
+          path: 'sign-in',
+          builder: (context, state) {
+            return SignInScreen(
+              actions: [
+                ForgotPasswordAction(((context, email) {
+                  final uri = Uri(
+                    path: '/sign-in/forgot-password',
+                    queryParameters: <String, String?>{
+                      'email': email,
+                    },
+                  );
+                  context.push(uri.toString());
+                })),
+                AuthStateChangeAction(((context, state) {
+                  if (state is SignedIn || state is UserCreated) {
+                    var user = (state is SignedIn)
+                        ? state.user
+                        : (state as UserCreated).credential.user;
+                    if (user == null) {
+                      return;
+                    }
+                    if (state is UserCreated) {
+                      user.updateDisplayName(user.email!.split('@')[0]);
+                    }
+                    if (!user.emailVerified) {
+                      user.sendEmailVerification();
+                      const snackBar = SnackBar(
+                          content: Text(
+                              'Please check your email to verify your email address'));
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                    }
+                    context.pushReplacement('/');
+                  }
+                })),
+              ],
+            );
+          },
+          routes: [
+            GoRoute(
+              path: 'forgot-password',
+              builder: (context, state) {
+                final arguments = state.queryParams;
+                return ForgotPasswordScreen(
+                  email: arguments['email'],
+                  headerMaxExtent: 200,
+                );
+              },
+            ),
+          ],
+        ),
+        GoRoute(
+          path: 'profile',
+          builder: (context, state) {
+            return ProfileScreen(
+              providers: const [],
+              actions: [
+                SignedOutAction((context) {
+                  context.pushReplacement('/');
+                }),
+              ],
+            );
+          },
+        ),
+      ],
+    ),
+  ],
+);
+// end of GoRouter configuration
+
+// Change MaterialApp to MaterialApp.router and add the routerConfig
+class App extends StatelessWidget {
+  const App({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
+    return MaterialApp.router(
       theme: ThemeData(primarySwatch: Colors.amber),
-      home: const RootPage(),
+      routerConfig: _router, // new
     );
   }
-  
 }
+
 
 
 class RootPage extends StatefulWidget {
@@ -52,7 +153,7 @@ class _RootPageState extends State<RootPage> {
   final List<String> _suggestions = ['pahaa ruokaa helposti', 'kova nälkä on','helppo ruoka alle 1 euro'];
   List<Widget> pages =   [
     
-    home(),
+    Home(),
     const Favourites(),
     const settings()
     
@@ -93,4 +194,5 @@ class _RootPageState extends State<RootPage> {
         ),
     ));
   }
+  
 }
