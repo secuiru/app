@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.ezfood.app-mergeDebugResources-9:/values-night-v8/values-night-v8.xml",
+            "outputFile": "com.example.ezfood.app-mergeDebugResources-13:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\tmkyl\\Documents\\OAMK\\Mobiilirojekti K23\\uusin\\app\\ezfood\\android\\app\\src\\main\\res\\values-night\\styles.xml",
+                    "source": "C:\\work\\MOBILEPROJEKTI\\4\\app\\ezfood\\android\\app\\src\\main\\res\\values-night\\styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",
