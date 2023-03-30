@@ -25,8 +25,9 @@ Future<void> main() async {
   );
 
   runApp(ChangeNotifierProvider(
+    
     create: (context) => ApplicationState(),
-    builder: ((context, child) => const App()),
+    builder: ((context, page) => const App()),
   ));
  
 }
@@ -127,9 +128,31 @@ class App extends StatelessWidget {
 class RootPage extends StatefulWidget {
   
 
-  const RootPage({super.key});
+  const RootPage({Key? key}) : super(key: key);
 
   @override
+Widget build(BuildContext context) {
+  final auth = FirebaseAuth.instance;
+  return StreamBuilder<User?>(
+    stream: auth.authStateChanges(),
+    builder: (context, snapshot) {
+      if (snapshot.connectionState == ConnectionState.waiting) {
+        return const Center(
+          child: CircularProgressIndicator(),
+        );
+      }
+      final user = snapshot.data;
+      if (user == null) {
+        return const SignInScreen();
+      }
+      return const App();
+    },
+  );
+}
+
+
+
+
   State<RootPage> createState() => _RootPageState();
 }
 
@@ -153,8 +176,9 @@ class _RootPageState extends State<RootPage> {
   final List<String> _suggestions = ['pahaa ruokaa helposti', 'kova nälkä on','helppo ruoka alle 1 euro'];
   List<Widget> pages =   [
     
-    Home(),
+    
     const Favourites(),
+    Home(),
     const settings()
     
   ];
