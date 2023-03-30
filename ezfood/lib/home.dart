@@ -26,14 +26,9 @@ class Home extends StatelessWidget {
               padding: const EdgeInsets.all(6),
   
               children:<Widget>[
-                Consumer<ApplicationState>(
-            builder: (context, appState, _) => AuthFunc(
-                loggedIn: appState.loggedIn,
-                signOut: () {
-                  FirebaseAuth.instance.signOut();
-                }),
                 
-          ),
+                
+          
              
               const Header("header"),
                 const Paragraph(

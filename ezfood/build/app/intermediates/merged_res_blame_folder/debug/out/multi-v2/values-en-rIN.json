@@ -4,7 +4,7 @@
             "outputFile": "com.example.ezfood.app-mergeDebugResources-13:/values-en-rIN/values-en-rIN.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\epixj\\.gradle\\caches\\transforms-3\\5cf9011be3a8da42f45f935b08559178\\transformed\\browser-1.4.0\\res\\values-en-rIN\\values-en-rIN.xml",
+                    "source": "C:\\Users\\Ok\\.gradle\\caches\\transforms-3\\5cf9011be3a8da42f45f935b08559178\\transformed\\browser-1.4.0\\res\\values-en-rIN\\values-en-rIN.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\epixj\\.gradle\\caches\\transforms-3\\b8203fe242bcd1c096ac2fef8b83226d\\transformed\\core-1.6.0\\res\\values-en-rIN\\values-en-rIN.xml",
+                    "source": "C:\\Users\\Ok\\.gradle\\caches\\transforms-3\\b8203fe242bcd1c096ac2fef8b83226d\\transformed\\core-1.6.0\\res\\values-en-rIN\\values-en-rIN.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
