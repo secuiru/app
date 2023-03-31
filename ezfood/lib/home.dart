@@ -42,8 +42,8 @@ class Home extends StatelessWidget {
                 if (appState.loggedIn) ...[
                   const Header('Discussion'),
                   recipes(
-                    addMessage: (message) =>
-                        appState.addNameToRecipe(message),
+                    addingrecipe: (name,materials,instructions) => 
+                        appState.addRecipe(name,materials,instructions)
                   ),
                 ],
               ],
