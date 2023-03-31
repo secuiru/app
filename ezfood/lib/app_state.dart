@@ -36,7 +36,7 @@ class ApplicationState extends ChangeNotifier {
 
     
   }
-  Future<DocumentReference> addNameToRecipe(String message) {
+  Future<DocumentReference> addRecipe(String name, String materials,String instructions) {
       if (!_loggedIn) {
         throw Exception('Must be logged in');
       }
@@ -44,9 +44,9 @@ class ApplicationState extends ChangeNotifier {
       return FirebaseFirestore.instance
           .collection('recipes')
           .add(<String, dynamic>{
-        'name': message,
-        'instructions': DateTime.now().millisecondsSinceEpoch,
-        'materials': FirebaseAuth.instance.currentUser!.displayName,
+        'name': name,
+        'instructions': instructions,
+        'materials': materials,
         'userId': FirebaseAuth.instance.currentUser!.uid,
       });
     }
