@@ -4,17 +4,11 @@ import 'package:firebase_auth/firebase_auth.dart'
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
    
 import 'firebase_options.dart';
 
 import 'dart:async';     
 import 'public_recipe.dart';
-=======
-
-import 'firebase_options.dart';
-
->>>>>>> 24121a2d1a0d4b946bc79e55d5ed2514aa1ab8d6
 class ApplicationState extends ChangeNotifier {
   ApplicationState() {
     init();
@@ -25,13 +19,10 @@ class ApplicationState extends ChangeNotifier {
   bool _loggedIn = false;
   bool get loggedIn => _loggedIn;
 
-<<<<<<< HEAD
    StreamSubscription<QuerySnapshot>? _publicRecipeSubscription;
   List<PublicRecipe> _publicRecipes= [];
   List<PublicRecipe> get publicRecipes => _publicRecipes;
 
-=======
->>>>>>> 24121a2d1a0d4b946bc79e55d5ed2514aa1ab8d6
   Future<void> init() async {
     await Firebase.initializeApp(
         options: DefaultFirebaseOptions.currentPlatform);
@@ -39,7 +30,6 @@ class ApplicationState extends ChangeNotifier {
     FirebaseUIAuth.configureProviders([
       EmailAuthProvider(),
     ]);
-<<<<<<< HEAD
     
     FirebaseAuth.instance.userChanges().listen((user) {
       if (user != null) {
@@ -68,19 +58,6 @@ class ApplicationState extends ChangeNotifier {
       }
       notifyListeners();
     });
-=======
-
-    FirebaseAuth.instance.userChanges().listen((user) {
-      if (user != null) {
-        _loggedIn = true;
-      } else {
-        _loggedIn = false;
-      }
-      notifyListeners();
-    });
-
-    
->>>>>>> 24121a2d1a0d4b946bc79e55d5ed2514aa1ab8d6
   }
   Future<DocumentReference> addRecipe(String name, String materials,String instructions) {
       if (!_loggedIn) {

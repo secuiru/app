@@ -1,14 +1,10 @@
 import 'dart:async';
-<<<<<<< HEAD
 import 'dart:math';
-=======
->>>>>>> 24121a2d1a0d4b946bc79e55d5ed2514aa1ab8d6
 
 import 'package:flutter/material.dart';
 
 import 'src/widgets.dart';
 
-<<<<<<< HEAD
 import 'public_recipe.dart';
 
 class recipes extends StatefulWidget {
@@ -18,38 +14,17 @@ class recipes extends StatefulWidget {
   final FutureOr<void> Function(String name, String materials,String instructions) addingrecipe;
 
    final List<PublicRecipe> recipeslist;
-=======
-class recipes extends StatefulWidget {
-  const recipes({required this.addingrecipe, super.key});
-
-  final FutureOr<void> Function(String name, String materials,String instructions) addingrecipe;
-
->>>>>>> 24121a2d1a0d4b946bc79e55d5ed2514aa1ab8d6
   @override
   State<recipes> createState() => _recipesBookState();
 }
 
 class _recipesBookState extends State<recipes> {
-<<<<<<< HEAD
-
-=======
->>>>>>> 24121a2d1a0d4b946bc79e55d5ed2514aa1ab8d6
   final _formKey = GlobalKey<FormState>(debugLabel: '_recipesBookState');
 
   final _controller = TextEditingController();
   final _controller2 = TextEditingController();
     final _controller3 = TextEditingController();
 
-<<<<<<< HEAD
-
-=======
-  /*Widget _buildName() {
-    return null;
-  }
-Widget _buildMaterials() {
-    return null;
-  }*/
->>>>>>> 24121a2d1a0d4b946bc79e55d5ed2514aa1ab8d6
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -60,10 +35,6 @@ Widget _buildMaterials() {
           children: [
             Container(
               
-<<<<<<< HEAD
-=======
-              
->>>>>>> 24121a2d1a0d4b946bc79e55d5ed2514aa1ab8d6
               child: TextFormField(
                 controller: _controller,
                 decoration: const InputDecoration(
@@ -120,7 +91,6 @@ Widget _buildMaterials() {
                 ],
               ),
             ),
-<<<<<<< HEAD
             
           const SizedBox(height: 8,width: 16,),
           
@@ -134,11 +104,6 @@ Widget _buildMaterials() {
         ),
       ),
       
-=======
-          ],
-        ),
-      ),
->>>>>>> 24121a2d1a0d4b946bc79e55d5ed2514aa1ab8d6
     );
   }
 }
