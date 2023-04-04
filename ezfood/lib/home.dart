@@ -32,11 +32,7 @@ class Home extends StatelessWidget {
              
               const Header("header"),
                 const Paragraph(
-<<<<<<< HEAD
              '-----',
-=======
-             'lisää resepti',
->>>>>>> 24121a2d1a0d4b946bc79e55d5ed2514aa1ab8d6
                ),
       
                 Consumer<ApplicationState>(
@@ -44,18 +40,11 @@ class Home extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 if (appState.loggedIn) ...[
-<<<<<<< HEAD
                   const Header('Recipes'),
                   recipes(
                     addingrecipe: (name,materials,instructions) => 
                         appState.addRecipe(name,materials,instructions),
                         recipeslist: appState.publicRecipes
-=======
-                  const Header('Discussion'),
-                  recipes(
-                    addingrecipe: (name,materials,instructions) => 
-                        appState.addRecipe(name,materials,instructions)
->>>>>>> 24121a2d1a0d4b946bc79e55d5ed2514aa1ab8d6
                   ),
                 ],
               ],
