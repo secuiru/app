@@ -17,24 +17,13 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('API in use for showing recipes'),
-        
-      ),
+
       body: ListView(
 
               padding: const EdgeInsets.all(6),
   
               children:<Widget>[
                 
-                
-          
-             
-              const Header("header"),
-                const Paragraph(
-             '-----',
-               ),
-      
                 Consumer<ApplicationState>(
             builder: (context, appState, _) => Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,8 +31,6 @@ class Home extends StatelessWidget {
                 if (appState.loggedIn) ...[
                   const Header('Recipes'),
                   recipes(
-                    addingrecipe: (name,materials,instructions) => 
-                        appState.addRecipe(name,materials,instructions),
                         recipeslist: appState.publicRecipes
                   ),
                 ],

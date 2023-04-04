@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'favourites.dart';
+import 'addnew.dart';
 import 'home.dart';
 import 'settings.dart';
 import 'package:easy_search_bar/easy_search_bar.dart';
@@ -177,7 +177,7 @@ class _RootPageState extends State<RootPage> {
   List<Widget> pages =   [
     
     
-    const Favourites(),
+    const Addnew(),
     Home(),
     const settings()
     
@@ -205,8 +205,8 @@ class _RootPageState extends State<RootPage> {
 
         bottomNavigationBar: NavigationBar(
           destinations: const [
-            NavigationDestination(icon: Icon(Icons.favorite), label: 'Favourites'),
-            NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
+            NavigationDestination(icon: Icon(Icons.add), label: 'Add recipe'),
+            NavigationDestination(icon: Icon(Icons.soup_kitchen), label: 'Recipes'),
             NavigationDestination(icon: Icon(Icons.settings), label: 'Settings'),  
           ],
           onDestinationSelected: (int index) {

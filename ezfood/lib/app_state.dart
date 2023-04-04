@@ -4,23 +4,20 @@ import 'package:firebase_auth/firebase_auth.dart'
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
-   
+import 'dart:async';
+import 'publicrecipes.dart';
 import 'firebase_options.dart';
 
-import 'dart:async';     
-import 'public_recipe.dart';
 class ApplicationState extends ChangeNotifier {
   ApplicationState() {
     init();
-    
   }
- 
 
   bool _loggedIn = false;
   bool get loggedIn => _loggedIn;
 
-   StreamSubscription<QuerySnapshot>? _publicRecipeSubscription;
-  List<PublicRecipe> _publicRecipes= [];
+  StreamSubscription<QuerySnapshot>? _publicRecipeSubscription;
+  List<PublicRecipe> _publicRecipes = [];
   List<PublicRecipe> get publicRecipes => _publicRecipes;
 
   Future<void> init() async {
@@ -30,22 +27,22 @@ class ApplicationState extends ChangeNotifier {
     FirebaseUIAuth.configureProviders([
       EmailAuthProvider(),
     ]);
-    
+
     FirebaseAuth.instance.userChanges().listen((user) {
       if (user != null) {
         _loggedIn = true;
         _publicRecipeSubscription = FirebaseFirestore.instance
             .collection('recipes')
-            .orderBy('materials', descending: true)
+            .orderBy('name', descending: false)
             .snapshots()
             .listen((snapshot) {
           _publicRecipes = [];
           for (final document in snapshot.docs) {
-           _publicRecipes.add(
+            _publicRecipes.add(
               PublicRecipe(
                 name: document.data()['name'] as String,
                 materials: document.data()['materials'] as String,
-                 instructions: document.data()['instructions'] as String,
+                instructions: document.data()['instructions'] as String,
               ),
             );
           }
@@ -59,18 +56,20 @@ class ApplicationState extends ChangeNotifier {
       notifyListeners();
     });
   }
-  Future<DocumentReference> addRecipe(String name, String materials,String instructions) {
-      if (!_loggedIn) {
-        throw Exception('Must be logged in');
-      }
 
-      return FirebaseFirestore.instance
-          .collection('recipes')
-          .add(<String, dynamic>{
-        'name': name,
-        'instructions': instructions,
-        'materials': materials,
-        'userId': FirebaseAuth.instance.currentUser!.uid,
-      });
+  Future<DocumentReference> addRecipe(
+      String name, String materials, String instructions) {
+    if (!_loggedIn) {
+      throw Exception('Must be logged in');
     }
+
+    return FirebaseFirestore.instance
+        .collection('recipes')
+        .add(<String, dynamic>{
+      'name': name,
+      'instructions': instructions,
+      'materials': materials,
+      'userId': FirebaseAuth.instance.currentUser!.uid,
+    });
+  }
 }
