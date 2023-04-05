@@ -17,30 +17,28 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-      body: ListView(
-
-              padding: const EdgeInsets.all(6),
-  
-              children:<Widget>[
-                
-                Consumer<ApplicationState>(
-            builder: (context, appState, _) => Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                if (appState.loggedIn) ...[
+      body: Padding(
+        padding: const EdgeInsets.all(6),
+        child: Consumer<ApplicationState>(
+          builder: (context, appState, _) {
+            if (appState.loggedIn) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
                   const Header('Recipes'),
-                  recipes(
-                        recipeslist: appState.publicRecipes
+                  Expanded(
+                    child: Recipes(recipesList: appState.publicRecipes),
                   ),
                 ],
-              ],
-            ),
-          ),
-              ],
-              ),
-            );
-          }
-    
+              );
+            } else {
+              return const Center(
+                child: Text('Please log in to see your recipes'),
+              );
+            }
+          },
+        ),
+      ),
+    );
   }
-
+}

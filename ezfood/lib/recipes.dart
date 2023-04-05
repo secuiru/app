@@ -1,38 +1,67 @@
-import 'dart:async';
-import 'publicrecipes.dart';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 
+
+import 'package:firebase_auth/firebase_auth.dart' // new
+    hide EmailAuthProvider, PhoneAuthProvider;    // new
+import 'package:provider/provider.dart';          // new
+
+import 'app_state.dart';     
+import 'recipes.dart';                         // new
+import 'src/authentication.dart';                 // new
 import 'src/widgets.dart';
+import 'package:ezfood/publicrecipes.dart';
+import 'package:flutter/material.dart';
 
-class recipes extends StatefulWidget {
-  const recipes({super.key, required this.recipeslist});
+import 'recipedetails.dart';
 
-  final List<PublicRecipe> recipeslist;
+class Recipes extends StatefulWidget {
+  final List<PublicRecipe> recipesList;
+
+  const Recipes({Key? key, required this.recipesList}) : super(key: key);
+
   @override
-  State<recipes> createState() => _recipesBookState();
+  _RecipesState createState() => _RecipesState();
 }
 
-class _recipesBookState extends State<recipes> {
-  final _formKey = GlobalKey<FormState>(debugLabel: '_recipesBookState');
-
-  /*Widget _buildName() {
-    return null;
-  }
-Widget _buildMaterials() {
-    return null;
-  }*/
+class _RecipesState extends State<Recipes> {
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Form(
-        key: _formKey,
-        child: Column(
-          children: [
-            for (var recipe in widget.recipeslist)
-              Paragraph('nimi: ${recipe.name}\n tarvikkeet: ${recipe.materials}\n ohje: ${recipe.instructions}'),
-          ],
-        ),
+      child: ListView.builder(
+        itemCount: widget.recipesList.length,
+        itemBuilder: (BuildContext context, int index) {
+          final recipe = widget.recipesList[index];
+          return Card(
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => RecipeDetails(recipe: recipe, key: null,),
+                  ),
+                );
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      recipe.name,
+                      style: Theme.of(context).textTheme.headline6,
+                    ),
+                    SizedBox(height: 8),
+                    Text(
+                      'Ingredients: ${recipe.materials}',
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
+        },
       ),
     );
   }
