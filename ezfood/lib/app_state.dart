@@ -1,3 +1,5 @@
+
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart'
     hide EmailAuthProvider, PhoneAuthProvider;
@@ -20,6 +22,10 @@ class ApplicationState extends ChangeNotifier {
   List<PublicRecipe> _publicRecipes = [];
   List<PublicRecipe> get publicRecipes => _publicRecipes;
 
+  // Add recipes getter
+  List<String> get recipes =>
+      _publicRecipes.map((recipe) => recipe.name).toList();
+
   Future<void> init() async {
     await Firebase.initializeApp(
         options: DefaultFirebaseOptions.currentPlatform);
@@ -36,16 +42,15 @@ class ApplicationState extends ChangeNotifier {
             .orderBy('name', descending: false)
             .snapshots()
             .listen((snapshot) {
-          _publicRecipes = [];
-          for (final document in snapshot.docs) {
-            _publicRecipes.add(
-              PublicRecipe(
-                name: document.data()['name'] as String,
-                materials: document.data()['materials'] as String,
-                instructions: document.data()['instructions'] as String,
-              ),
+          final List<PublicRecipe> recipes = snapshot.docs.map((document) {
+            return PublicRecipe(
+              name: document.data()['name'] as String,
+              materials: document.data()['materials'] as String,
+              instructions: document.data()['instructions'] as String,
+              userId: document.data()['userId'] as String,
             );
-          }
+          }).toList();
+          _publicRecipes = recipes;
           notifyListeners();
         });
       } else {
@@ -72,4 +77,28 @@ class ApplicationState extends ChangeNotifier {
       'userId': FirebaseAuth.instance.currentUser!.uid,
     });
   }
-}
+
+Future<void> deleteRecipe(String name) async {
+  if (!_loggedIn) {
+    throw Exception('Must be logged in');
+  }
+
+  // Query for the document with the matching name
+  QuerySnapshot querySnapshot = await FirebaseFirestore.instance
+      .collection('recipes')
+      .where('name', isEqualTo: name)
+      .get();
+
+  if (querySnapshot.size == 0) {
+    print('No recipe found with name $name');
+    return;
+  }
+
+  // Delete the first document returned by the query
+  await FirebaseFirestore.instance
+      .collection('recipes')
+      .doc(querySnapshot.docs[0].id)
+      .delete();
+
+  print('Recipe deleted successfully!');
+}}
