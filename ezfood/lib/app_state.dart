@@ -14,7 +14,7 @@ class ApplicationState extends ChangeNotifier {
   ApplicationState() {
     init();
   }
-
+  String placeholder = "https://media.discordapp.net/attachments/1047466096673947653/1097456196853694546/image.png";
   bool _loggedIn = false;
   bool get loggedIn => _loggedIn;
 
@@ -61,7 +61,6 @@ class ApplicationState extends ChangeNotifier {
       }
       notifyListeners();
     });
-   
   }
 
   Future<DocumentReference> addRecipe(
@@ -77,6 +76,8 @@ class ApplicationState extends ChangeNotifier {
       'instructions': instructions,
       'materials': materials,
       'userId': FirebaseAuth.instance.currentUser!.uid,
+      'imgurl': placeholder,
+      
     });
   }
 

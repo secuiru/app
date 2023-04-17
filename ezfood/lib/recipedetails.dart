@@ -12,32 +12,46 @@ class RecipeDetails extends StatelessWidget {
     List<String> materials = recipe.materials.split(', ');
     List<String> instructions = recipe.instructions.split(', ');
 
-    return Scaffold(
+        return Scaffold(
       appBar: AppBar(
         title: Text(recipe.name),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('Ingredients:', style: Theme.of(context).textTheme.headline6),
-            SizedBox(height: 8),
-            ListView.builder(
-              shrinkWrap: true,
-              itemCount: materials.length,
-              itemBuilder: (context, index) => Text(materials[index]),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            height: 200,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: NetworkImage(recipe.imgurl),
+                fit: BoxFit.cover,
+              ),
             ),
-            SizedBox(height: 16),
-            Text('Instructions:', style: Theme.of(context).textTheme.headline6),
-            SizedBox(height: 8),
-            ListView.builder(
-              shrinkWrap: true,
-              itemCount: instructions.length,
-              itemBuilder: (context, index) => Text('${index + 1}. ${instructions[index]}'),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Ingredients:', style: Theme.of(context).textTheme.titleLarge),
+                SizedBox(height: 8),
+                ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: materials.length,
+                  itemBuilder: (context, index) => Text(materials[index]),
+                ),
+                SizedBox(height: 16),
+                Text('Instructions:', style: Theme.of(context).textTheme.titleLarge),
+                SizedBox(height: 8),
+                ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: instructions.length,
+                  itemBuilder: (context, index) => Text('${index + 1}. ${instructions[index]}'),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

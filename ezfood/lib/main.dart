@@ -180,8 +180,8 @@ class _RootPageState extends State<RootPage> {
     
     const Addnew(),
     const Home(),
-    const settings(),
     const Favourites(),
+    const settings(),
     
   ];
   @override
@@ -209,8 +209,9 @@ class _RootPageState extends State<RootPage> {
           destinations: const [
             NavigationDestination(icon: Icon(Icons.add), label: 'Add recipe'),
             NavigationDestination(icon: Icon(Icons.soup_kitchen), label: 'Recipes'),
+            NavigationDestination(icon: Icon(Icons.favorite_sharp), label: 'Favourites'), 
             NavigationDestination(icon: Icon(Icons.settings), label: 'Settings'),  
-            NavigationDestination(icon: Icon(Icons.favorite_sharp), label: 'Favourites'),  
+             
           ],
           onDestinationSelected: (int index) {
             setState(() {
