@@ -48,6 +48,7 @@ class ApplicationState extends ChangeNotifier {
               materials: document.data()['materials'] as String,
               instructions: document.data()['instructions'] as String,
               userId: document.data()['userId'] as String,
+              imgurl: document.data()['imgurl'] as String,
             );
           }).toList();
           _publicRecipes = recipes;
@@ -60,6 +61,7 @@ class ApplicationState extends ChangeNotifier {
       }
       notifyListeners();
     });
+   
   }
 
   Future<DocumentReference> addRecipe(

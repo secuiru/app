@@ -17,8 +17,9 @@ import 'recipedetails.dart';
 
 class Recipes extends StatefulWidget {
   final List<PublicRecipe> recipesList;
-
+  
   const Recipes({Key? key, required this.recipesList}) : super(key: key);
+  
 
   @override
   _RecipesState createState() => _RecipesState();
@@ -48,13 +49,20 @@ class _RecipesState extends State<Recipes> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      recipe.name,
-                      style: Theme.of(context).textTheme.headline6,
-                    ),
-                    SizedBox(height: 8),
-                    Text(
-                      'Ingredients: ${recipe.materials}',
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          recipe.name,
+                          style: Theme.of(context).textTheme.headline6,
+                        ),
+                        IconButton(
+                          icon: Icon(Icons.favorite_sharp),
+                          onPressed: () {
+                            // Handle favorite button press here
+                          },
+                        ),
+                      ],
                     ),
                   ],
                 ),
