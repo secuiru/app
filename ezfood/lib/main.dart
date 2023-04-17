@@ -1,4 +1,5 @@
 
+import 'package:ezfood/favourites.dart';
 import 'package:flutter/material.dart';
 import 'addnew.dart';
 import 'home.dart';
@@ -178,8 +179,9 @@ class _RootPageState extends State<RootPage> {
     
     
     const Addnew(),
-    Home(),
-    const settings()
+    const Home(),
+    const settings(),
+    const Favourites(),
     
   ];
   @override
@@ -208,6 +210,7 @@ class _RootPageState extends State<RootPage> {
             NavigationDestination(icon: Icon(Icons.add), label: 'Add recipe'),
             NavigationDestination(icon: Icon(Icons.soup_kitchen), label: 'Recipes'),
             NavigationDestination(icon: Icon(Icons.settings), label: 'Settings'),  
+            NavigationDestination(icon: Icon(Icons.favorite_sharp), label: 'Favourites'),  
           ],
           onDestinationSelected: (int index) {
             setState(() {
