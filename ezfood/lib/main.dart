@@ -179,7 +179,7 @@ class _RootPageState extends State<RootPage> {
     
     
     const Addnew(),
-    const Home(),
+     Home(),
     const Favourites(),
     const settings(),
     
@@ -191,9 +191,8 @@ class _RootPageState extends State<RootPage> {
        theme: _iconbool ? _darkTheme : _lightTheme,
        home: Scaffold(
 
-         appBar: EasySearchBar(
-          onSearch: (value) => setState(() => searchValue = value),
-          suggestions: _suggestions,
+          appBar: AppBar(
+          
         title: const Text('ezfood'),
         actions: [
           IconButton(onPressed:(){
