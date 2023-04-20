@@ -34,10 +34,13 @@ class _RecipesDeleteState extends State<RecipesDelete> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Expanded(
-                    child: Paragraph('nimi: ${recipe.name}'),
+                    child: Text(
+                      'nimi: ${recipe.name}',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                   IconButton(
-                    icon: Icon(Icons.delete),
+                    icon: Icon(Icons.delete, color: Colors.red),
                     onPressed: () async {
                       await showDialog(
                         context: context,

@@ -35,24 +35,27 @@ Widget _buildMaterials() {
         key: _formKey,
         child: Column(
           children: [
-            Container(
-              child: TextFormField(
-                controller: _controller,
-                decoration: const InputDecoration(
-                  hintText: 'Name',
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Enter Name';
-                  }
-                  return null;
-                },
+            TextFormField(
+              controller: _controller,
+              decoration: const InputDecoration(
+                hintText: 'Name',
+                fillColor: Color.fromARGB(255, 158, 158, 158),
+                filled: true,
               ),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Enter Name';
+                }
+                return null;
+              },
             ),
+            const SizedBox(height: 15),
             TextFormField(
               controller: _controller2,
               decoration: const InputDecoration(
                 hintText: 'Materials',
+                fillColor: Color.fromARGB(255, 158, 158, 158),
+                filled: true,
               ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -61,10 +64,13 @@ Widget _buildMaterials() {
                 return null;
               },
             ),
+            const SizedBox(height: 15),
             TextFormField(
               controller: _controller3,
               decoration: const InputDecoration(
                 hintText: 'Instructions',
+                fillColor: Color.fromARGB(255, 158, 158, 158),
+                filled: true,
               ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -73,6 +79,7 @@ Widget _buildMaterials() {
                 return null;
               },
             ),
+            const SizedBox(height: 15),
             const SizedBox(width: 8),
             StyledButton(
               onPressed: () async {
@@ -88,8 +95,8 @@ Widget _buildMaterials() {
               child: Row(
                 children: const [
                   Icon(Icons.send),
-                  SizedBox(width: 4),
-                  Text('Create'),
+                  SizedBox(width: 15),
+                  Text('CREATE'),
                 ],
               ),
             ),

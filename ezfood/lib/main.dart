@@ -1,45 +1,38 @@
-
 import 'package:ezfood/favourites.dart';
 import 'package:flutter/material.dart';
 import 'addnew.dart';
 import 'home.dart';
 import 'settings.dart';
-import 'package:easy_search_bar/easy_search_bar.dart';
 import 'package:firebase_core/firebase_core.dart';
-
 import 'package:firebase_ui_auth/firebase_ui_auth.dart'; // new
-
-import 'package:go_router/go_router.dart';               // new
-
-import 'package:provider/provider.dart';                 // new
-import 'package:google_fonts/google_fonts.dart';
-import 'app_state.dart';  
+import 'package:go_router/go_router.dart'; // new
+import 'package:provider/provider.dart'; // new
+import 'app_state.dart';
 import 'firebase_options.dart';
+import 'package:ezfood/sivut/auth_page.dart';
 import 'package:firebase_auth/firebase_auth.dart' // new
-    hide EmailAuthProvider, PhoneAuthProvider;                               // new
+    hide
+        EmailAuthProvider,
+        PhoneAuthProvider; // new
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
- await Firebase.initializeApp(
+  await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
   runApp(ChangeNotifierProvider(
-    
     create: (context) => ApplicationState(),
     builder: ((context, page) => const App()),
   ));
- 
 }
-
-
 
 final _router = GoRouter(
   routes: [
     GoRoute(
       path: '/',
-      builder: (context, state) => const RootPage(),
+      builder: (context, state) => const AuthPage(),
       routes: [
         GoRoute(
           path: 'sign-in',
@@ -119,40 +112,34 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       theme: ThemeData(primarySwatch: Colors.amber),
+      debugShowCheckedModeBanner: false,
       routerConfig: _router, // new
     );
   }
 }
 
-
-
 class RootPage extends StatefulWidget {
-  
-
   const RootPage({Key? key}) : super(key: key);
 
   @override
-Widget build(BuildContext context) {
-  final auth = FirebaseAuth.instance;
-  return StreamBuilder<User?>(
-    stream: auth.authStateChanges(),
-    builder: (context, snapshot) {
-      if (snapshot.connectionState == ConnectionState.waiting) {
-        return const Center(
-          child: CircularProgressIndicator(),
-        );
-      }
-      final user = snapshot.data;
-      if (user == null) {
-        return const SignInScreen();
-      }
-      return const App();
-    },
-  );
-}
-
-
-
+  Widget build(BuildContext context) {
+    final auth = FirebaseAuth.instance;
+    return StreamBuilder<User?>(
+      stream: auth.authStateChanges(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+        final user = snapshot.data;
+        if (user == null) {
+          return const SignInScreen();
+        }
+        return const App();
+      },
+    );
+  }
 
   State<RootPage> createState() => _RootPageState();
 }
@@ -167,59 +154,68 @@ ThemeData _lightTheme = ThemeData(
   brightness: Brightness.light,
 );
 ThemeData _darkTheme = ThemeData(
- primarySwatch: Colors.deepOrange,
- brightness: Brightness.dark,
+  primarySwatch: Colors.deepOrange,
+  brightness: Brightness.dark,
 );
 
 class _RootPageState extends State<RootPage> {
   int currentPage = 0;
-   String searchValue = '';
-  final List<String> _suggestions = ['pahaa ruokaa helposti', 'kova nälkä on','helppo ruoka alle 1 euro'];
-  List<Widget> pages =   [
-    
-    
+  String searchValue = '';
+  final List<String> _suggestions = [
+    'pahaa ruokaa helposti',
+    'kova nälkä on',
+    'helppo ruoka alle 1 euro'
+  ];
+  List<Widget> pages = [
     const Addnew(),
-     Home(),
+    Home(),
     const Favourites(),
     const settings(),
-    
   ];
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-       theme: _iconbool ? _darkTheme : _lightTheme,
-       home: Scaffold(
-
+        debugShowCheckedModeBanner: false,
+        theme: _iconbool ? _darkTheme : _lightTheme,
+        home: Scaffold(
           appBar: AppBar(
-          
-        title: const Text('ezfood'),
-        actions: [
-          IconButton(onPressed:(){
+            title: const Text('ezfood'),
+            actions: [
+              IconButton(
+                  onPressed: () {
+                    setState(() {
+                      _iconbool = !_iconbool;
+                    });
+                  },
+                  icon: Icon(_iconbool ? _icondark : _iconLight))
+            ],
+          ),
+          body: Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/images/tausta.png"),
+                fit: BoxFit.cover,
+              ),
+            ),
+            child: pages[currentPage],
+          ),
+          bottomNavigationBar: NavigationBar(
+            destinations: const [
+              NavigationDestination(icon: Icon(Icons.add), label: 'Add recipe'),
+              NavigationDestination(
+                  icon: Icon(Icons.soup_kitchen), label: 'Recipes'),
+              NavigationDestination(
+                  icon: Icon(Icons.favorite_sharp), label: 'Favourites'),
+              NavigationDestination(
+                  icon: Icon(Icons.settings), label: 'Settings'),
+            ],
+            onDestinationSelected: (int index) {
               setState(() {
-                _iconbool = !_iconbool;
+                currentPage = index;
               });
-            } , icon: Icon(_iconbool ? _icondark : _iconLight))
-          ],
-      ),
-      body: pages[currentPage],
-
-        bottomNavigationBar: NavigationBar(
-          destinations: const [
-            NavigationDestination(icon: Icon(Icons.add), label: 'Add recipe'),
-            NavigationDestination(icon: Icon(Icons.soup_kitchen), label: 'Recipes'),
-            NavigationDestination(icon: Icon(Icons.favorite_sharp), label: 'Favourites'), 
-            NavigationDestination(icon: Icon(Icons.settings), label: 'Settings'),  
-             
-          ],
-          onDestinationSelected: (int index) {
-            setState(() {
-              currentPage = index;
-            });
-          },
-          selectedIndex: currentPage,
-        ),
-    ));
+            },
+            selectedIndex: currentPage,
+          ),
+        ));
   }
-  
 }

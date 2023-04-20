@@ -53,15 +53,47 @@ class IconAndDetail extends StatelessWidget {
 }
 
 class StyledButton extends StatelessWidget {
-  const StyledButton({required this.child, required this.onPressed, super.key});
+  const StyledButton({required this.child, required this.onPressed, Key? key})
+      : super(key: key);
+
   final Widget child;
   final void Function() onPressed;
 
   @override
-  Widget build(BuildContext context) => OutlinedButton(
-        style: OutlinedButton.styleFrom(
-            side: const BorderSide(color: Colors.deepPurple)),
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: const Color.fromARGB(255, 255, 166, 0),
+        borderRadius: BorderRadius.circular(30),
+        boxShadow: const [
+          BoxShadow(
+            color: Colors.black26,
+            spreadRadius: 2,
+            blurRadius: 4,
+            offset: Offset(0, 2),
+          ),
+        ],
+      ),
+      child: TextButton(
+        style: TextButton.styleFrom(
+          backgroundColor: Colors.transparent,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(100),
+          ),
+          minimumSize: Size(190, 60), // Set minimum size of the button
+        ),
         onPressed: onPressed,
-        child: child,
-      );
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+          child: Center(
+            // Center the text
+            child: DefaultTextStyle(
+              style: const TextStyle(fontSize: 18),
+              child: child,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }
