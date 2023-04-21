@@ -47,7 +47,7 @@ class _RegisterPageState extends State<RegisterPage> {
         });
       } else {
         setState(() {
-          errorText = "Salasanat eivät täsmää";
+          errorText = "Passwords dont match";
         });
         // pop the loading circle
         // ignore: use_build_context_synchronously
@@ -58,18 +58,18 @@ class _RegisterPageState extends State<RegisterPage> {
       Navigator.pop(context);
       if (e.code == 'email-already-in-use') {
         setState(() {
-          errorText = "Sähköpostiosoite on jo käytössä";
+          errorText = "Email already used";
         });
       } else {
         setState(() {
-          errorText = "Virheellinen sähköpostiosoite.";
+          errorText = "Incorrect password";
         });
       }
     } catch (e) {
       // pop the loading circle
       Navigator.pop(context);
       setState(() {
-        errorText = "Tapahtui virhe.";
+        errorText = "Oops! something went wrong";
       });
     }
   }
@@ -102,7 +102,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 const SizedBox(height: 20),
 
                 Text(
-                  'Rekisteröidy',
+                  'Register',
                   style: TextStyle(
                     color: Color.fromARGB(255, 255, 255, 255),
                     fontSize: 24,
@@ -114,7 +114,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 // email textfield
                 MyTextField(
                   controller: emailController,
-                  hintText: 'Sähköpostiosoitteesi',
+                  hintText: 'Email',
                   obscureText: false,
                   onChanged: (value) {},
                 ),
@@ -124,13 +124,13 @@ class _RegisterPageState extends State<RegisterPage> {
                 // password textfield
                 MyTextField(
                   controller: passwordController,
-                  hintText: 'Salasana',
+                  hintText: 'Password',
                   obscureText: true,
                   onChanged: (value) {
                     if (value.length < 6) {
                       setState(() {
                         errorText =
-                            "Salasanan täytyy olla vähintään 6 merkkiä pitkä.";
+                            "Pasword needs to be atleast 6 characters";
                       });
                     } else {
                       setState(() {
@@ -145,7 +145,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   children: [
                     MyTextField(
                       controller: confirmPasswordController,
-                      hintText: 'Salasana uudelleen',
+                      hintText: 'Verify password',
                       obscureText: true,
                       onChanged: (value) {},
                     ),
@@ -177,7 +177,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
                 // sign in button
                 MyButton(
-                  text: "Luo tunnus",
+                  text: "Create account",
                   onTap: signUserUp,
                 ),
 
@@ -196,10 +196,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                        child: Text(
-                          'Tai jatka',
-                          style: TextStyle(color: Colors.grey[700]),
-                        ),
+                        
                       ),
                       Expanded(
                         child: Divider(
@@ -227,14 +224,14 @@ class _RegisterPageState extends State<RegisterPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Onko sinulla jo tunnukset?',
+                      'Already registered?',
                       style: TextStyle(color: Colors.grey[700]),
                     ),
                     const SizedBox(width: 4),
                     GestureDetector(
                       onTap: widget.onTap,
                       child: const Text(
-                        'Kirjaudu sisään.',
+                        'Login.',
                         style: TextStyle(
                           color: Colors.blue,
                           fontWeight: FontWeight.bold,

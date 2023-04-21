@@ -121,7 +121,6 @@ class App extends StatelessWidget {
 class RootPage extends StatefulWidget {
   const RootPage({Key? key}) : super(key: key);
 
-  @override
   Widget build(BuildContext context) {
     final auth = FirebaseAuth.instance;
     return StreamBuilder<User?>(
@@ -161,14 +160,9 @@ ThemeData _darkTheme = ThemeData(
 class _RootPageState extends State<RootPage> {
   int currentPage = 0;
   String searchValue = '';
-  final List<String> _suggestions = [
-    'pahaa ruokaa helposti',
-    'kova nälkä on',
-    'helppo ruoka alle 1 euro'
-  ];
   List<Widget> pages = [
     const Addnew(),
-    Home(),
+    const Home(),
     const Favourites(),
     const settings(),
   ];
@@ -194,7 +188,7 @@ class _RootPageState extends State<RootPage> {
             decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("assets/images/tausta.png"),
-                fit: BoxFit.cover,
+                
               ),
             ),
             child: pages[currentPage],

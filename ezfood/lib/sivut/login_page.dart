@@ -44,9 +44,9 @@ class _LoginPageState extends State<LoginPage> {
       setState(() {
         // set error message
         if (e.code == 'user-not-found') {
-          errorText = 'Väärä sähköpostiosoite tai salasana';
+          errorText = 'Wrong password or email';
         } else if (e.code == 'wrong-password') {
-          errorText = 'Väärä sähköpostiosoite tai salasana';
+          errorText = 'Wrong password or email';
         }
       });
     }
@@ -80,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 20),
 
                 Text(
-                  'Tervetuloa, onko näläkä?',
+                  'Welcome!',
                   style: TextStyle(
                     color: Color.fromARGB(255, 255, 255, 255),
                     fontSize: 24,
@@ -92,7 +92,7 @@ class _LoginPageState extends State<LoginPage> {
                 // email textfield
                 MyTextField(
                   controller: emailController,
-                  hintText: 'Sähköpostiosoitteesi',
+                  hintText: 'Email',
                   obscureText: false,
                   onChanged: (value) {},
                 ),
@@ -102,7 +102,7 @@ class _LoginPageState extends State<LoginPage> {
                 // password textfield
                 MyTextField(
                   controller: passwordController,
-                  hintText: 'Salasana',
+                  hintText: 'Password',
                   obscureText: true,
                   onChanged: (value) {},
                 ),
@@ -122,12 +122,7 @@ class _LoginPageState extends State<LoginPage> {
                   padding: const EdgeInsets.symmetric(horizontal: 50),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Text(
-                        'Unohditko salasanasi? No koita vaan muistaa!',
-                        style: TextStyle(color: Colors.grey[600]),
-                      ),
-                    ],
+                    
                   ),
                 ),
 
@@ -135,7 +130,7 @@ class _LoginPageState extends State<LoginPage> {
 
                 // sign in button
                 MyButton(
-                  text: "Kirjaudu",
+                  text: "Login",
                   onTap: signUserIn,
                 ),
                 const SizedBox(height: 25),
@@ -152,10 +147,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                        child: Text(
-                          'Tai jatka',
-                          style: TextStyle(color: Colors.grey[700]),
-                        ),
+                        
                       ),
                       Expanded(
                         child: Divider(
@@ -182,14 +174,14 @@ class _LoginPageState extends State<LoginPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Ei vielä tunnusta?',
+                      'Not registered yet?',
                       style: TextStyle(color: Colors.grey[700]),
                     ),
                     const SizedBox(width: 4),
                     GestureDetector(
                       onTap: widget.onTap,
                       child: const Text(
-                        'Rekisteröidy nyt',
+                        'Register now',
                         style: TextStyle(
                           color: Colors.blue,
                           fontWeight: FontWeight.bold,
