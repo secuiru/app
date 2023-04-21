@@ -66,7 +66,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '982526738318',
     projectId: 'ezfootesti',
     storageBucket: 'ezfootesti.appspot.com',
-    iosClientId: '982526738318-drarglh2no53q225100m2bffqs87b1hu.apps.googleusercontent.com',
+    iosClientId:
+        '982526738318-drarglh2no53q225100m2bffqs87b1hu.apps.googleusercontent.com',
     iosBundleId: 'com.example.ezfood',
   );
 
@@ -76,7 +77,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '982526738318',
     projectId: 'ezfootesti',
     storageBucket: 'ezfootesti.appspot.com',
-    iosClientId: '982526738318-drarglh2no53q225100m2bffqs87b1hu.apps.googleusercontent.com',
+    iosClientId:
+        '982526738318-drarglh2no53q225100m2bffqs87b1hu.apps.googleusercontent.com',
     iosBundleId: 'com.example.ezfood',
   );
 }
