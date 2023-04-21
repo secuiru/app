@@ -34,7 +34,7 @@ class _HomeState extends State<Home> {
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(6),
+          padding: const EdgeInsets.all(3),
           child: Consumer<ApplicationState>(
             builder: (context, appState, _) {
               if (appState.loggedIn) {

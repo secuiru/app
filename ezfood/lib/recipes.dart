@@ -63,17 +63,17 @@ class _RecipesState extends State<Recipes> {
                             fit: BoxFit.cover,
                           ),
                         ),
-                        SizedBox(height: 16),
+                        const SizedBox(height: 16),
                         Text(
                           recipe.name,
                           style: Theme.of(context).textTheme.titleLarge,
                         ),
-                        SizedBox(height: 8),
+                        const SizedBox(height: 8),
                         Text(
                           'Ingredients: ${recipe.materials}',
                         ),
                         IconButton(
-                          icon: Icon(Icons.favorite_sharp),
+                          icon: const Icon(Icons.favorite_sharp),
                           onPressed: () {
                             // Handle favorite button press here
                           },

@@ -18,17 +18,17 @@ class MyTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 40.0),
+      padding: const EdgeInsets.symmetric(horizontal: 5.0),
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.grey.shade200,
+          color: Color.fromARGB(255, 238, 5, 5),
           borderRadius: BorderRadius.circular(5.0),
           boxShadow: [
             BoxShadow(
               color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.1),
               spreadRadius: 2,
               blurRadius: 5,
-              offset: const Offset(0, 3),
+              offset: const Offset(0, 0),
             ),
           ],
         ),
