@@ -187,7 +187,8 @@ class _RootPageState extends State<RootPage> {
           body: Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("assets/images/tausta.png"),
+                image: AssetImage("assets/images/emptytausta.png"),
+                fit: BoxFit.cover
                 
               ),
             ),
