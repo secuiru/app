@@ -70,7 +70,7 @@ class _RecipesState extends State<Recipes> {
                         ),
                         const SizedBox(height: 8),
                         Text(
-                          'Ingredients: ${recipe.materials}',
+                          recipe.materials,
                         ),
                         IconButton(
                           icon: const Icon(Icons.favorite_sharp),
